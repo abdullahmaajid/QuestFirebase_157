@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "43622291380",
+    "project_id": "pamlagi",
+    "storage_bucket": "pamlagi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43622291380:android:298aef799bad4d300004e1",
+        "android_client_info": {
+          "package_name": "com.example.pertemuan14newbanget"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_ts_681aJ_LC2WEif14qAYOu5JLnspX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
