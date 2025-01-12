@@ -12,16 +12,14 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
-sealed class HomeUiState{
-    data class Success(val mahasiswa: List<Mahasiswa>): HomeUiState()
-    data class Error(val exception: Throwable): HomeUiState()
-    object Loading: HomeUiState()
+sealed class HomeUiState {
+    data class Success(val mahasiswa: List<Mahasiswa>) : HomeUiState()
+    data class Error(val exception: Throwable) : HomeUiState()
+    object Loading : HomeUiState()
 }
 
-class HomeViewModel (
-    private val mhs : MahasiswaRepository
-): ViewModel() {
-    var mhsUIState: HomeUiState by mutableStateOf(HomeUiState.Loading)
+class HomeViewModel(private val mhs: MahasiswaRepository):ViewModel(){
+    var mhsUiState : HomeUiState by mutableStateOf(HomeUiState.Loading)
         private set
 
     init {
@@ -32,13 +30,13 @@ class HomeViewModel (
         viewModelScope.launch {
             mhs.getMahasiswa()
                 .onStart {
-                    mhsUIState = HomeUiState.Loading
+                    mhsUiState = HomeUiState.Loading
                 }
-                .catch {
-                    mhsUIState = HomeUiState.Error(it)
+                .catch{
+                    mhsUiState = HomeUiState.Error(it)
                 }
                 .collect{
-                    mhsUIState = if (it.isEmpty()) {
+                    mhsUiState = if (it.isEmpty()){
                         HomeUiState.Error(Exception("Belum ada daftar mahasiswa"))
                     } else {
                         HomeUiState.Success(it)
