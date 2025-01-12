@@ -4,9 +4,10 @@ import android.app.Application
 import com.example.pertemuan14newbanget.di.AppContainer
 import com.example.pertemuan14newbanget.di.MahasiswaContainer
 
-class MahasiswaApplications: Application() {
+class MahasiswaApplications : Application() {
     lateinit var container: AppContainer
-    override fun onCreate(){
+
+    override fun onCreate() {
         super.onCreate()
         container = MahasiswaContainer()
     }
