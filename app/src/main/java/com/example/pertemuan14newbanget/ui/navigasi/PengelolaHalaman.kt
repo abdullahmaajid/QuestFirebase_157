@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-//import com.example.pertemuan14newbanget.ui.view.DetailScreen
+//import com.example.pertemuan14newbanget.ui.view.DetailView
 import com.example.pertemuan14newbanget.ui.view.HomeScreen
 import com.example.pertemuan14newbanget.ui.view.InsertMhsView
 
@@ -36,16 +36,11 @@ fun PengelolaHalaman(
                 }
             )
         }
-        //composable(DestinasiDetail.routeWithArg) { backStackEntry ->
-            // Get the NIM argument from the navController
-            //val nim = backStackEntry.arguments?.getString(DestinasiDetail.NIM) ?: ""
 
-            // Display the DetailScreen and pass the NIM
-            //DetailScreen(
-                //nim = nim,
-                //navigateBack = { navController.popBackStack() },
-                //navigateToEdit = { /* Handle navigate to edit screen */ }
-            //)
-        //}
-    }
+        //composable(DestinasiDetail.route) { backStackEntry ->
+           //val nim = backStackEntry.arguments?.getString("nim") ?: ""
+            //DetailView(nim = nim, navController = navController)
+        }
+
+
 }

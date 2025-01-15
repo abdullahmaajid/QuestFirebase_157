@@ -98,7 +98,7 @@ fun InsertMhsView(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .padding(16.dp)
+                .padding(2.dp)
         ) {
             InsertBodyMhs(
                 uiState = uiEvent,
@@ -184,6 +184,9 @@ fun FormMahasiswa(
             text = errorState.nama ?: "",
             color = Color.Red
         )
+
+
+
         mahasiswaEvent.nim?.let {
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
@@ -198,7 +201,7 @@ fun FormMahasiswa(
             )
         }
         Text(text = errorState.nim ?: "", color = Color.Red)
-        Spacer(modifier = Modifier.height(16.dp))
+
         Text(text = "Jenis Kelamin")
         Row(
             modifier = Modifier.fillMaxWidth()
@@ -238,7 +241,8 @@ fun FormMahasiswa(
             )
         }
         Text(text = errorState.alamat ?: "", color = Color.Red)
-        Spacer(modifier = Modifier.height(16.dp))
+
+
         Text(text = "Kelas")
         Row {
             kelas.forEach { kelas ->
@@ -261,6 +265,7 @@ fun FormMahasiswa(
             text = errorState.kelas ?: "",
             color = Color.Red
         )
+
         mahasiswaEvent.angkatan?.let {
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
@@ -276,6 +281,63 @@ fun FormMahasiswa(
             )
         }
         Text(text = errorState.angkatan ?: "", color = Color.Red)
+
+
+        // TAMBAH JUDULSKRIPSI DOSEN1 DAN DOSEN2
+        mahasiswaEvent.judulskripsi?.let {
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = it,
+                onValueChange = {
+                    onValueChange(mahasiswaEvent.copy(judulskripsi = it))
+                },
+                label = { Text("JudulSkripsi") },
+                isError = errorState.judulskripsi != null,
+                placeholder = { Text("Masukkan judulskripsi") },
+            )
+        }
+        Text(
+            text = errorState.judulskripsi?: "",
+            color = Color.Red
+        )
+
+        mahasiswaEvent.dosen1?.let {
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = it,
+                onValueChange = {
+                    onValueChange(mahasiswaEvent.copy(dosen1 = it))
+                },
+                label = { Text("Dosen 1") },
+                isError = errorState.dosen1 != null,
+                placeholder = { Text("Masukkan Dosen1") },
+            )
+        }
+
+        Text(
+            text = errorState.dosen1 ?: "",
+            color = Color.Red
+        )
+
+        mahasiswaEvent.dosen2?.let {
+            OutlinedTextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = it,
+                onValueChange = {
+                    onValueChange(mahasiswaEvent.copy(dosen2 = it))
+                },
+                label = { Text("Dosen 2") },
+                isError = errorState.dosen1 != null,
+                placeholder = { Text("Masukkan Dosen2") },
+            )
+        }
+        Text(
+            text = errorState.dosen2 ?: "",
+            color = Color.Red
+        )
+
+
+
     }
 }
 

@@ -17,5 +17,6 @@ object PenyediaViewModel {
             val app = this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as MahasiswaApplications
             InsertViewModel(app.container.mahasiswaRepository)
         }
+
     }
 }

@@ -31,7 +31,10 @@ class InsertViewModel (
             jenis_kelamin = if (event.jenis_kelamin?.isNotEmpty() == true) null else "Jenis Kelamin tidak boleh kosong",
             alamat = if (event.alamat?.isNotEmpty() == true) null else "Alamat tidak boleh kosong",
             kelas = if (event.kelas?.isNotEmpty() == true) null else "Kelas tidak boleh kosong",
-            angkatan = if (event.angkatan?.isNotEmpty() == true) null else "angkatan tidak boleh kosong"
+            angkatan = if (event.angkatan?.isNotEmpty() == true) null else "angkatan tidak boleh kosong",
+            judulskripsi = if (event.judulskripsi?.isNotEmpty() == true) null else "judulskripsi tidak boleh kosong",
+            dosen1 = if (event.dosen1?.isNotEmpty() == true) null else "dosen1 tidak boleh kosong",
+            dosen2 = if (event.dosen2?.isNotEmpty() == true) null else "dosen2 tidak boleh kosong"
         )
         uiEvent = uiEvent.copy(isEntryValid = errorState)
         return errorState.isValid()
@@ -79,11 +82,21 @@ data class FormErrorState(
     val jenis_kelamin: String? = null,
     val alamat: String? = null,
     val kelas: String? = null,
-    val angkatan: String? = null
+    val angkatan: String? = null,
+    val judulskripsi: String? = null,
+    val dosen1: String? = null,
+    val dosen2: String? = null
 ) {
     fun isValid(): Boolean {
-        return nim == null && nama == null && jenis_kelamin == null &&
-                alamat == null && kelas == null && angkatan == null
+        return nim == null &&
+                nama == null &&
+                jenis_kelamin == null &&
+                alamat == null &&
+                kelas == null &&
+                angkatan == null &&
+                judulskripsi == null &&
+                dosen1 == null &&
+                dosen2 == null
     }
 }
 //data class variabel yang menyimpan data input form
@@ -93,7 +106,10 @@ data class MahasiswaEvent(
     val jenis_kelamin: String? = "",
     val alamat: String? = "",
     val kelas: String? = "",
-    val angkatan: String? = ""
+    val angkatan: String? = "",
+    val judulskripsi: String? = "",
+    val dosen1: String? = "",
+    val dosen2: String? = ""
 )
 // Menyimpan input form kedalam entity
 fun MahasiswaEvent.toMhsModel() : Mahasiswa = Mahasiswa(
@@ -102,7 +118,10 @@ fun MahasiswaEvent.toMhsModel() : Mahasiswa = Mahasiswa(
     jenis_kelamin = jenis_kelamin?: "",
     alamat = alamat?: "",
     kelas = kelas?: "",
-    angkatan = angkatan?: ""
+    angkatan = angkatan?: "",
+    judulskripsi = judulskripsi?: "",
+    dosen1 = dosen1?: "",
+    dosen2 = dosen2?: ""
 )
 
 
